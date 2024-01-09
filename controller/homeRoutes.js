@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const withAuth = require("../utils/authentication")
+const withAuth = require("../utils/authentication");
+const Post = require("../models/Post");
 
 router.use((req, res, next) => {
   res.locals.logged_in = req.session.logged_in;
@@ -19,32 +20,39 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/login", async (req,res) => {
+router.get("/login", async (req, res) => {
+  try {
+    res.render("login");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-    try {
-        res.render("login")
-    } catch (err) {
-        res.status(500).json(err);
-    }
+router.get("/signup", async (req, res) => {
+  try {
+    res.render("signup");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-}) 
+router.get("/profile", withAuth, async (req, res) => {
+  try {
 
-router.get("/signup", async (req,res) => {
+    const postData = await Post.findAll({
+      where: { user_id: req.session.user_id },
+    });
 
-    try {
-        res.render("signup")
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    const posts = postData.map((post) => post.get({ plain: true }));
 
-}) 
-
-router.get("/profile", withAuth, async (req,res) => {
-    try {
-        res.render("profile")
-    } catch(err) {
-        res.status(500).json(err);
-    }
-})
+    res.render("profile", {
+      user_name: req.session.user_name,
+      posts: posts,
+    });
+    
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

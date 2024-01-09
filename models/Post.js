@@ -25,10 +25,6 @@ Post.init(
             model:"user",
             key:"id",
         }
-    },
-    date_created: {
-        type:DataTypes.DATE,
-        defaultValue:sequelize.NOW
     }
     
   },

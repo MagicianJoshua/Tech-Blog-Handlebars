@@ -83,4 +83,23 @@ main {
 .signup-form * {
     margin:5px;
 }
+
+.post {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    border: solid black;
+    align-items: center;
+    padding: 25px;
+}
+
+
+.post * {
+    margin: 5px;
+}
+
+.post div {
+    display: flex;
+    align-items: center;
+}
     
