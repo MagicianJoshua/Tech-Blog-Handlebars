@@ -84,7 +84,7 @@ main {
     margin:5px;
 }
 
-.post {
+.post-partial {
     margin: 50px;
     display: flex;
     flex-direction: column;
@@ -94,11 +94,11 @@ main {
 }
 
 
-.post * {
+.post-partial * {
     margin: 5px;
 }
 
-.post div {
+.post-partial div {
     display: flex;
     align-items: center;
 }

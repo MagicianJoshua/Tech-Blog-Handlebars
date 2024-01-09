@@ -3,6 +3,7 @@ const Post = require("../models/Post");
 
 const postData = [
     {
+        id:1,
         title:"Why i love sql",
         text:"Its the best ever",
         user_id:1,
