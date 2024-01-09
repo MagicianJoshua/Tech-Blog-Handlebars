@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const withAuth = require("../../utils/authentication")
+const withAuth = require("../utils/authentication")
 
 router.use((req, res, next) => {
   res.locals.logged_in = req.session.logged_in;
