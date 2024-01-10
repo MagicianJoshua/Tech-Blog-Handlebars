@@ -1,4 +1,4 @@
-const {User} = require("../models");
+const {User} = require("../models").default;
 const userData = [
   {
     id: 1,
