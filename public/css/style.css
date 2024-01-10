@@ -84,6 +84,19 @@ main {
     margin:5px;
 }
 
+.post {
+    width: 1000px;
+    margin: 25px;
+    border: solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post * {
+    margin:5px;
+}
+
 .post-partial {
     margin: 50px;
     display: flex;
@@ -103,3 +116,6 @@ main {
     align-items: center;
 }
     
+#comment {
+    margin: 10px;
+}

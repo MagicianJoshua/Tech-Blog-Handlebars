@@ -1,4 +1,11 @@
-<div><h2>Created by:{{user.name}}</h2></div>
-
-{{post.title}}
-{{post.text}}
+<div class="post">
+    <h2>Created by:{{post.user.username}}</h2>
+    <p>Created at:{{post.createdAt}}</p>
+    <h2>Title:{{post.title}}</h2>
+    <p>{{post.text}}</p>
+    
+</div>
+<U><h2>Comments</h2></U>
+    {{#each comments as |comment|}}
+    {{> comment-partial}}
+    {{/each}}
