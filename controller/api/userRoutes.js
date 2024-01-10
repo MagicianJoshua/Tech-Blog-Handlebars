@@ -1,5 +1,7 @@
 const router = require("express").Router();
-const {Post,Comment,User} = require("../../models/index.js")
+const Post = require("../../models/Post")
+const Comment = require("../../models/Comment")
+const User = require("../../models/User")
 
 router.post("/signup", async (req, res) => {
   try {

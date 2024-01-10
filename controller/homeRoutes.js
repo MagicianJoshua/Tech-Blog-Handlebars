@@ -1,6 +1,8 @@
 const router = require("express").Router();
 const withAuth = require("../utils/authentication");
-const {Post,Comment,User} = require("../models/index")
+const Post = require("../../models/Post")
+const Comment = require("../../models/Comment")
+const User = require("../../models/User")
 
 
 router.use((req, res, next) => {
