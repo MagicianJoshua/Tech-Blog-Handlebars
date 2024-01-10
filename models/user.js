@@ -51,4 +51,4 @@ User.init(
   }
 );
 
-module.exports = User;
+export default User;

@@ -39,4 +39,4 @@ Comment.init({
   }
 );
 
-module.exports = Comment;
+export default Comment;
