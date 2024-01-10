@@ -74,4 +74,12 @@ router.post("/comment", async (req,res) => {
       }
 })
 
+router.delete('/deletePost', async (req,res) => {
+  
+    const data = await Post.findByPk(req.body.id)
+    data.destroy();
+    
+    res.json("Comment deleted");
+  })
+
 module.exports = router;
