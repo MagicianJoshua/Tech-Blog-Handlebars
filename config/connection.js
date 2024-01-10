@@ -7,9 +7,9 @@ if (process.env.JAWSDB_URL) {
 } else {
   console.log("notJawsDB");
   sequelize = new Sequelize(
-    "TechBlog_db",
-    "root",
-    "2524",
+    process.env.DB_NAME,
+    process.env.DB_USER,
+    process.env.DB_PASSWORD,
     {
       host: "localhost",
       dialect: "mysql",
