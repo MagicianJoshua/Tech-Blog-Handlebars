@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll({include:{model:User}});
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts)
+
     res.render("homepage", {
       posts: posts,
     });
