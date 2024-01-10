@@ -87,14 +87,15 @@ main {
 .post {
     width: 1000px;
     margin: 25px;
+    padding: 25px;
     border: solid black;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
 }
 
 .post * {
-    margin:5px;
+    margin:15px;
 }
 
 .post-partial {
@@ -102,20 +103,52 @@ main {
     display: flex;
     flex-direction: column;
     border: solid black;
-    align-items: center;
+    align-items:left;
     padding: 25px;
 }
 
 
 .post-partial * {
-    margin: 5px;
+    margin: 15px;
 }
 
 .post-partial div {
     display: flex;
     align-items: center;
 }
+
+.post-form {
+    margin:250px;
+    border:solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-form * {
+    margin:10px;
+}
+
+.comment-form {
+    margin: 150px;
+    border:solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-form * {
+    margin:5px;
+}
+
+
     
 #comment {
     margin: 10px;
+}
+
+#gotoComments{
+    color:black;
+    margin-left:500px;
+    margin-right:500px;
 }

@@ -1,10 +1,13 @@
 <div class="post-partial" id="{{this.id}}">
-
-    <div> <h2>Title:</h2> <h2> {{this.title}} </h2> </div>
-    <div><h2>Text:</h2><p>{{this.text}}</p></div>
-    <div><h2>Created At:</h2><p>{{this.createdAt}}</p></div>
-    <p>{{this.comments}}</p>
-    <a href="/post/{{this.id}}">Comments</a></div>
+    <h2>Author: {{this.user.username}}</h2>
+     <h2>Title: {{this.title}}</h2> 
+    <h2>Text: {{this.text}}</h2>
+    <h2>Created At: {{this.createdAt}}</h2>
+   
     {{!-- <script src="/js/delete.js"></script> --}}
     <script src="/js/checkComments.js"></script>
+    <a id="gotoComments" href="/post/{{this.id}}">Go to post</a>
+    
 </div>
+ 
+ 

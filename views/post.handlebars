@@ -1,11 +1,24 @@
-<div class="post">
+<div class="post" id="{{post.id}}">
     <h2>Created by:{{post.user.username}}</h2>
-    <p>Created at:{{post.createdAt}}</p>
+    <h2>Created at:{{post.createdAt}}</h2>
     <h2>Title:{{post.title}}</h2>
-    <p>{{post.text}}</p>
+    <p>Text: {{post.text}}</p>
     
 </div>
 <U><h2>Comments</h2></U>
     {{#each comments as |comment|}}
     {{> comment-partial}}
     {{/each}}
+
+<section class="comment-menu">
+    
+    <div class="user" id="{{userId}}"></div>
+    <form class="comment-form">
+    <h2>Make comment</h2>
+    <label for='text'>Text</label>
+    <input placeholder="text" type="text" id="text" name="text" required>
+
+    <input type="submit" value="post comment">
+    </form>
+</section>
+<script src="/js/comment.js"></script>

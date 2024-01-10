@@ -40,10 +40,10 @@ router.get("/signup", async (req, res) => {
 router.get("/profile", withAuth, async (req, res) => {
   try {
 
-    const postData = await Post.findAll({where:{user_id:req.session.user_id}});
+    const postData = await Post.findAll({where:{user_id:req.session.user_id}, include:{model:User}});
     const posts = postData.map((post) => post.get({ plain: true }));
+    console.log(posts)
     res.render("profile", {
-      user_name: req.session.user_name,
       posts: posts,
     });
     
@@ -70,12 +70,27 @@ router.get("/post/:id" , async (req,res) => {
         res.render("post", {
             post:post,
             comments:comments,
+            userId:req.session.user_id
         })
     }
     catch (err) {
         res.status(500).json(err);
     }
 
+})
+
+
+router.get("/makePost", withAuth, async (req,res) =>{
+    try {
+        res.render("makePost",
+        {
+            userId:req.session.user_id
+        });
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+    
 })
 
 module.exports = router;
