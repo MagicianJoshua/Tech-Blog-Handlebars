@@ -3,13 +3,23 @@
     <h2>Created at:{{post.createdAt}}</h2>
     <h2>Title:{{post.title}}</h2>
     <p>Text: {{post.text}}</p>
-    
+    {{#unless author}}
+    {{else}}
+    <button id="deletePost">Delete post</button>
+    {{/unless}}
 </div>
 <U><h2>Comments</h2></U>
     {{#each comments as |comment|}}
     {{> comment-partial}}
     {{/each}}
 
+    
+           
+            
+          
+{{#unless logged_in}}
+<a href="/login">Login to leave a comment</a>
+{{else}}
 <section class="comment-menu">
     
     <div class="user" id="{{userId}}"></div>
@@ -22,3 +32,5 @@
     </form>
 </section>
 <script src="/js/comment.js"></script>
+{{/unless}}
+

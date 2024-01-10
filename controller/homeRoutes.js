@@ -9,13 +9,14 @@ router.use((req, res, next) => {
 });
 
 router.get("/", async (req, res) => {
-  // Send the rendered Handlebars.js template back as the response
-
   try {
+    const postData = await Post.findAll({include:{model:User}});
+    const posts = postData.map((post) => post.get({ plain: true }));
     res.render("homepage", {
-      logged_in: req.session.logged_in,
+      posts: posts,
     });
-  } catch (err) {
+    }
+   catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
@@ -42,7 +43,6 @@ router.get("/profile", withAuth, async (req, res) => {
 
     const postData = await Post.findAll({where:{user_id:req.session.user_id}, include:{model:User}});
     const posts = postData.map((post) => post.get({ plain: true }));
-    console.log(posts)
     res.render("profile", {
       posts: posts,
     });
@@ -65,12 +65,19 @@ router.get("/post/:id" , async (req,res) => {
                 model:User
             }} )
         const comments = commentData.map((comment) => comment.get({ plain: true }));
-        console.log("Comment data",comments);
-
+        let author;
+        if (post.user.id === req.session.user_id){
+            author = true
+        } else {
+            author = false
+        }
+        console.log(post)
+        console.log(author)
         res.render("post", {
             post:post,
             comments:comments,
-            userId:req.session.user_id
+            userId:req.session.user_id,
+            author:author,
         })
     }
     catch (err) {
