@@ -1,5 +1,5 @@
 const sequelize = require("../config/connection");
-const {Post} = require("../models").default;
+const {Post} = require("../models");
 
 const postData = [
     {
