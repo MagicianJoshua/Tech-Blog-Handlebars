@@ -1,6 +1,7 @@
 # Tech Blog ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
 ## Description <br>
 This read me is for the tech blog website developed with handlebars and express <br>
+![image](https://github.com/MagicianJoshua/Tech-Blog-Handlebars/)
 ## Table of contents <br>
 [Installation](#installation-) <br>
 [Usage](#usage-) <br>
